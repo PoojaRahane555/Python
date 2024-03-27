@@ -102,3 +102,42 @@ sayli.displayDname()
 print(sayli.first_name)
 print(sayli.last_name)
 print(sayli.dname)
+
+
+# 4)Multi-level Inheritance:
+
+class Mother:
+
+    def __init__(self,fn,ln):
+        print("Mother constructor is called....")
+        self.firstName = fn
+        self.lastName = ln
+
+    def displayName(self):
+        print(self.firstName + self.lastName)
+
+class Father:
+
+    def __init__(self,fn,ln):
+        print("Father constructor is called...........")
+        self.firstName = fn
+        self.lastName = ln
+
+    def displayName(self):
+        print(self.firstName + self.lastName)
+
+class Daugher(Mother,Father):
+
+    def __init__(self, fn, ln, dfn):
+        super().__init__(fn, ln)
+        self.dname = dfn
+
+    def displayDname(self):
+        print(self.dname + self.lastName)
+
+pooja = Daugher("Ranjana","Rahane","Pooja")
+pooja.displayDname()
+pooja.displayName()
+print(pooja.firstName)
+print(pooja.lastName)
+print(pooja.dname)
