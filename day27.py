@@ -22,17 +22,64 @@ class Calculator2:
 
     def addition(self,l = None, m = None, n = None, o = None):
 
-        if(l != None and m != None and n != None and o != None):
+        if l != None and m != None and n != None and o != None:
             print(l + m + n + o)
-        elif(l != None and m != None and n != None):
+        elif l != None and m != None and n != None:
             print(l + m + n)
-        elif(l != None and m != None):
+        elif l != None and m != None:
             print(l + m)
 
 alpha2 = Calculator2()
 alpha2.addition(10,20)
 alpha2.addition(10,20,30)
 alpha2.addition(10,20,30,40)
+
+# program 1:
+class Cat:
+    def talk(self):
+        print('Meows Meows')
+
+class Human:
+    def talk(self):
+        print('Good Morning')
+
+Kittu = Cat()
+Aarvi = Human()
+
+def call_talk(obj):
+    obj.talk()
+
+call_talk(Kittu)
+call_talk(Aarvi)
+
+# Program2:
+class Dog:
+    def talk(self):
+        print("Bow Bow")
+
+class Human:
+    def talk(self):
+        print("Hello Everyone")
+
+class Duck:
+    def sound(self):
+        print("Quack Quack")
+
+x = Dog()
+y = Human()
+z = Duck()
+
+def call_talk(obj):
+    if hasattr(obj,'talk'):
+        obj.talk()
+    else:
+        obj.sound()
+
+call_talk(x)
+call_talk(y)
+call_talk(z)
+
+
 
 
 
