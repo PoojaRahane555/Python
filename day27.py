@@ -1,6 +1,8 @@
 # Polymorphism:
-# 1)Overloading: Which is not possible in Python
+# A)Overloading: Which is not possible in Python
 # same class, same method name , different signature
+
+# program 1:
 
 class Calculator:
 
@@ -34,7 +36,7 @@ alpha2.addition(10,20)
 alpha2.addition(10,20,30)
 alpha2.addition(10,20,30,40)
 
-# program 1:
+# program 2:
 class Cat:
     def talk(self):
         print('Meows Meows')
@@ -79,7 +81,96 @@ call_talk(x)
 call_talk(y)
 call_talk(z)
 
+# ......................................///..........................
+# program 3: Operator OverLoading
+print(5 + 5)
+print(6 > 5)
+print("x" + "y")
+print(['a','b'] + ['c','d'])
 
+class BookA:
+
+    def __init__(self,pages):
+        self.pages = pages
+
+    def __add__(self,other):
+        return self.pages + other.pages
+
+class BookB:
+
+    def __init__(self,pages):
+        self.pages = pages
+
+    def __add__(self,other):
+        return self.pages + other.pages
+
+Geeta = BookA(500)
+Haripath = BookB(100)
+
+print(Geeta.pages + Haripath.pages)
+print(Geeta.pages > Haripath.pages)
+print(Geeta + Haripath)
+print(Haripath + Geeta)
+
+# 
+class BookC:
+
+    def __init__(self,pages):
+        self.pages = pages
+
+    def __gt__(self,other):
+        return self.pages > other.pages
+
+class BookD:
+
+    def __init__(self,pages):
+        self.pages = pages
+    
+    def __gt__(self,other):
+        return self.pages > other.pages
+
+Shivpuran = BookC(400)
+Tulsipuran = BookD(300)
+print(Shivpuran.pages + Tulsipuran.pages)
+print(Shivpuran.pages < Tulsipuran.pages)
+print(Shivpuran > Tulsipuran)
+print(Tulsipuran > Shivpuran)
+
+# B)Overriding: different class, same method name, same signature
+
+class WorldBank:
+
+    def save(self):
+        print('I am save from WorldBank')
+    
+    def loan(self):
+        print('I am loan from WorldBank')
+
+class HDFC(WorldBank):
+
+    def save(self):
+        super().save()
+        print('I am save from HDFC bank')
+    
+    def loan(self):
+        super().loan()
+        print('I am loan from HDFC bank')
+
+bank1 = HDFC()
+bank1.save()
+bank1.loan()
+
+class ICICI(WorldBank):
+
+    def save(self):
+        print('I am save from ICICI bank')
+
+    def loan(self):
+        print('I am loan from ICICI bank')
+
+bank2 = ICICI()
+bank2.save()
+bank2.loan()
 
 
 
