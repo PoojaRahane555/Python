@@ -171,8 +171,3 @@ class ICICI(WorldBank):
 bank2 = ICICI()
 bank2.save()
 bank2.loan()
-
-
-
-
-    
