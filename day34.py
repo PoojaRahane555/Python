@@ -27,16 +27,29 @@ class Employee:
         print(self.age)
 
 f = open('student.dat','wb')
-n = int(input('Enter the no. of objects'))
+n = int(input('Enter the no. of objects:  '))
 
 for x in range(n):
-    fn = input("Enter firstName")
-    ln = input("Enter lastName")
-    eml = input('Enter email')
-    ag = input('Enter age')
+    fn = input("Enter firstName:  ")
+    ln = input("Enter lastName:  ")
+    eml = input('Enter email:  ')
+    ag = input('Enter age:  ')
     e = Employee(fn,ln,eml,ag)
     pickle.dump(e,f)
     
-f.close()   
+f.close()
+
+f = open('student.dat','rb')
+while True:
+    try:
+        e = pickle.load(f)
+        e.displayInfo()
+
+    except EOFError:
+        print('End of file reached')
+        break
+f.close()
+
+
 # python object ===> data file write
 # data read  ==> python object  ==> displayInfo()
