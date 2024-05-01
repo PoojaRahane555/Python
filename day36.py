@@ -24,7 +24,7 @@ str4 = "wow! today ,  i have seen : very nice car.  "
 result4 = re.split(r'\W+',str4)
 print(result4)
 
-# Program 5: 
+# Program 5: Replace
 str5 = "I like banana and apple."
 result5 = re.sub(r'apple','mango',str5)
 print(result5)
